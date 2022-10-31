@@ -28,8 +28,8 @@
         @Medium Baseline here!
         藉由調整以下的width和height設定來調整canvas寬高
         */
-        width: 475px;
-        height: 570px;
+        width: 700px;
+        height: 800px;
         /* 位置 */
         transform: scale(1.2); /* same as plus and minus */
         margin-top: 10%;
@@ -74,18 +74,28 @@
   </head>
   <body>
     <div id="controller">
+      <p>Margin</p>
       <button id="top">上</button>
       <button id="down">下</button>
       <button id="left">左</button>
       <button id="right">右</button>
       <button id="plus">放大+</button>
       <button id="minus">縮小-</button>
+      </br>
+      <p>Update</p>
+      <button id="top_update">上</button>
+      <button id="down_update">下</button>
+      <button id="left_update">左</button>
+      <button id="right_update">右</button>
+      <button id="plus_update">放大+</button>
+      <button id="minus_update">縮小-</button>
       <div class="background-control">
         <h2>更換背景</h2>
         <div id="backgroundDrag">拖放背景圖片</div>
         <input type="file" id="backgroundFile" />
       </div>
     </div>
+
     <div id="character"></div>
     <script>
       // inital background
@@ -97,32 +107,38 @@
       let x = parseFloat(elStyle.getPropertyValue("margin-top")),
         y = parseFloat(elStyle.getPropertyValue("margin-left")),
         scale = 1.2;
+      let update_x = 0.45;
+      let update_y = 0;
+      let update_scale = 1;
 
       // dont override
       window.addEventListener("load", () => {
-        // update(0.1, 0.3, 0.5);
-        // window.setInterval(function(){
-        //   for(let i = 0; i < 1.1; i += 0.01){
-        //     window.setTimeout(function(){
-        //       update(0.1+i, 0.3-i, 0.5+i);
-        //     }, 10000*i);
-        //   }
-        // }, 11000);
+        update(update_x, update_y, update_scale);
+      });
 
-        let currentScale = scale;
-
-        update(0.45, 0, 1);
-        window.setInterval(function(){
-          for(let n = 0; n < 0.61; n += 0.01){
-            window.setTimeout(function(){
-              update(0.45, 0-n/2, 1);
-              scale += 0.01;
-              el.style.transform = `scale(${scale})`;
-            }, 10000*n);
-          }
-          scale = currentScale;
-        }, 7000);
-
+      document.querySelector("#top_update").addEventListener("click", (e) => {
+        update_y += 0.025;
+        update(update_x, update_y, update_scale);
+      });
+      document.querySelector("#down_update").addEventListener("click", (e) => {
+        update_y -= 0.025;
+        update(update_x, update_y, update_scale);
+      });
+      document.querySelector("#right_update").addEventListener("click", (e) => {
+        update_x += 0.025;
+        update(update_x, update_y, update_scale);
+      });
+      document.querySelector("#left_update").addEventListener("click", (e) => {
+        update_x -= 0.025;
+        update(update_x, update_y, update_scale);
+      });
+      document.querySelector("#plus_update").addEventListener("click", (e) => {
+        update_scale += 0.05;
+        update(update_x, update_y, update_scale);
+      });
+      document.querySelector("#minus_update").addEventListener("click", (e) => {
+        update_scale -= 0.05;
+        update(update_x, update_y, update_scale);
       });
 
       /*
@@ -130,26 +146,32 @@
       助教會帶你一步一步撰寫以下的程式碼
       */
       document.querySelector("#top").addEventListener("click", (e) => {
+        //alert("TODO往上");
         x -= 10;
-        el.style.marginTop = `${x}px`;
+        el.style.marginTop = `${x}px`
       });
       document.querySelector("#down").addEventListener("click", (e) => {
+        //alert("TODO往下");
         x += 10;
         el.style.marginTop = `${x}px`;
       });
       document.querySelector("#right").addEventListener("click", (e) => {
+        //alert("TODO往右");
         y += 10;
         el.style.marginLeft = `${y}px`;
       });
       document.querySelector("#left").addEventListener("click", (e) => {
+        //alert("TODO往左");
         y -= 10;
         el.style.marginLeft = `${y}px`;
       });
       document.querySelector("#plus").addEventListener("click", (e) => {
+        //alert("TODO放大");
         scale += 0.1;
         el.style.transform = `scale(${scale})`;
       });
       document.querySelector("#minus").addEventListener("click", (e) => {
+        //alert("TODO縮小");
         scale -= 0.1;
         el.style.transform = `scale(${scale})`;
       });
@@ -157,12 +179,13 @@
       let backgroundDragEL = document.querySelector("#backgroundDrag");
 
       backgroundDragEL.addEventListener("drop", (e) => {
+        //alert("TODO background drop");
         e.stopPropagation();
         e.preventDefault();
 
         let files = e.dataTransfer.files;
-        let imagePath = URL.createObjectURL(files[0]);
-        document.body.style.backgroundImage = `url(${imagePath})`;
+        let image = URL.createObjectURL(files[0]);
+        document.body.style.backgroundImage = `url(${image})`;
       });
 
       backgroundDragEL.addEventListener("dragover", (e) => {
@@ -174,11 +197,12 @@
       let backgroundFileEL = document.querySelector("#backgroundFile");
 
       backgroundFileEL.addEventListener("change", (e) => {
+        //alert("TODO background file change");
         let files = e.target.files;
 
         if(files[0]){
-          let imagePath = URL.createObjectURL(files[0]);
-          document.body.style.backgroundImage = `url(${imagePath})`;
+          let image = URL.createObjectURL(files[0]);
+          document.body.style.backgroundImage = `url(${image})`;
         }
       });
     </script>
