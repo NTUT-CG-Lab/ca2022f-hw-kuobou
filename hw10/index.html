@@ -202,15 +202,15 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      作業程式碼，請放在 src 檔案夾。
-      <input type="button" name="back" onclick="parent.location='./src/hw10.png'" value="按我看圖片">
+      Assests Timeline截圖，請放在 src 檔案夾。
+      <input type="button" name="back" onclick="parent.location='./src/timeline.PNG'" value="點我看圖片">
     </div>
   </div>
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      <p>這次是電腦動畫課程的第十個作業，感覺又越來越複雜了，好麻煩，不過還是蠻有趣的，感覺又朝Vtuber更進一步了，然後再一次感謝隔壁學長協助。</p>
+      這次是電腦動畫課程的第十個作業，感覺又越來越複雜了，好麻煩，不過還是蠻有趣的，感覺又朝Vtuber更進一步了，然後再一次感謝隔壁學長協助。
     </div>
   </div>
 
@@ -224,31 +224,31 @@
           <th>配分</th>
           <th>分項描述</th>
         </tr>
-       <tr>
-          <td rowspan="7" id="myTotal">10</td>
+        <tr>
+          <td rowspan="5" id="myTotal"></td>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
           <td id='m1'>1</td>
-          <td>Simple Baseline: 將場景匯入unity</td>
+          <td>將場景匯入unity</td>
         </tr>
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
-          <td id='m1'>2</td>
-          <td>Simple Baseline: 將轉檔好的MMD模型匯入unity並建立角色動畫</td>
+          <td id='m2'>2</td>
+          <td>將轉檔好的MMD模型匯入unity並建立角色動畫</td>
         </tr>
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
-          <td id='m2'>2</td>
-          <td>Medium Baseline: 設置至少三個分鏡</td>
+          <td id='m3'>2</td>
+          <td>設置至少三個分鏡</td>
         </tr>
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked></td>
-          <td id='m2'>3</td>
-          <td>Medium Baseline: 使用軌道攝影機至少繞一圈</td>
+          <td id='m4'>3</td>
+          <td>使用軌道攝影機至少繞一圈</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox5"></td>
-          <td id='m2'>2</td>
-          <td>Strong Baseline: 更換其他場景、豐富的運鏡</td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox5" checked="checked" ></td>
+          <td id='m5'>2</td>
+          <td>更換其他場景、豐富的運鏡</td>
         </tr>
       </table>
     </div>
@@ -256,10 +256,10 @@
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
-    <div class="col-md-12 twenty d-flex justify-content-center">
-        <video id="video1" style="width:100%;max-width:100%;" controls="">
-            <source src="./hw10.mp4" type="video/mp4">
-        </video>
+    <div class="col-md-12 twenty">
+      <video id="video1" style="width:100%;max-width:100%;" controls="">
+        <source src="./video/hw10.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 
@@ -280,8 +280,8 @@
   d3.select("#myCheckbox3").on("change",update);
   d3.select("#myCheckbox4").on("change",update);
   d3.select("#myCheckbox5").on("change",update);
-  //d3.select("#myCheckbox6").on("change",update);
-  //d3.select("#myCheckbox7").on("change",update);
+<!--   d3.select("#myCheckbox6").on("change",update);
+  d3.select("#myCheckbox7").on("change",update); -->
 
   update();
   
@@ -309,13 +309,13 @@
       score += parseInt(d3.select('#m5').html());   
     }
 
-    // if (d3.select("#myCheckbox6").property("checked")){
-    //   score += parseInt(d3.select('#m6').html());   
-    // }
+<!--     if (d3.select("#myCheckbox6").property("checked")){
+      score += parseInt(d3.select('#m6').html());   
+    }
 
-    // if (d3.select("#myCheckbox7").property("checked")){
-    //   score += parseInt(d3.select('#m7').html());   
-    // }
+    if (d3.select("#myCheckbox7").property("checked")){
+      score += parseInt(d3.select('#m7').html());   
+    } -->
 
     d3.select("#myTotal").html(score);    
   }
