@@ -203,13 +203,14 @@
   <div class="row hw12">
     <div class="col-md-12 twenty">
       作業程式碼，請放在 src 檔案夾。
+      <input type="button" name="back" onclick="window.location.href='https://github.com/NTUT-CG-Lab/ca2022f-hw-ca2022f-hw-kuobou/tree/main/hw08'" value="...按我...按我...按我...">
     </div>
   </div>
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      <p>這次是電腦動畫課程的第八個作業，感覺又越來越複雜了，好麻煩，不過還是蠻有趣的，感覺又朝Vtuber更進一步了，然後再一次感謝隔壁學長協助。</p>
+      這次是電腦動畫課程的第七個作業，感覺又越來越複雜了，好麻煩，不過還是蠻有趣的，感覺又朝Vtuber更進一步了，然後再一次感謝隔壁學長協助。
     </div>
   </div>
 
@@ -223,26 +224,26 @@
           <th>配分</th>
           <th>分項描述</th>
         </tr>
-       <tr>
-          <td rowspan="7" id="myTotal">10</td>
+        <tr>
+          <td rowspan="4" id="myTotal"></td>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
-          <td id='m1'>2</td>
-          <td>Simple Baseline: 做出單一動作</td>
+          <td id='m1'>3</td>
+          <td>角色能做單一動作</td>
         </tr>
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
-          <td id='m1'>3</td>
-          <td>Medium Baseline: 做出3個或以上的動作，切換自如</td>
+          <td id='m2'>3</td>
+          <td>角色能夠做多個動作，切換自如</td>
         </tr>
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
-          <td id='m2'>3</td>
-          <td>Strong Baseline: 旋轉視角</td>
+          <td id='m3'>2</td>
+          <td>在 Game 模式中可以按滑鼠右鍵旋轉視角，觀看不同動作</td>
         </tr>
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked></td>
-          <td id='m2'>2</td>
-          <td>Strong Baseline: 縮放視角</td>
+          <td id='m4'>2</td>
+          <td>在 Game 模式中可以按滑鼠滾輪放大，觀看不同動作</td>
         </tr>
       </table>
     </div>
@@ -250,10 +251,10 @@
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
-    <div class="col-md-12 twenty d-flex justify-content-center">
-        <video id="video1" style="width:100%;max-width:100%;" controls="">
-            <source src="./hw08.mp4" type="video/mp4">
-        </video>
+    <div class="col-md-12 twenty">
+      <video id="video1" style="width:100%;max-width:100%;" controls="">
+        <source src="./HW8.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 
@@ -273,9 +274,9 @@
   d3.select("#myCheckbox2").on("change",update);
   d3.select("#myCheckbox3").on("change",update);
   d3.select("#myCheckbox4").on("change",update);
-  //d3.select("#myCheckbox5").on("change",update);
-  //d3.select("#myCheckbox6").on("change",update);
-  //d3.select("#myCheckbox7").on("change",update);
+//   d3.select("#myCheckbox5").on("change",update);
+//   d3.select("#myCheckbox6").on("change",update);
+//   d3.select("#myCheckbox7").on("change",update);
 
   update();
   
@@ -299,17 +300,17 @@
       score += parseInt(d3.select('#m4').html());   
     }
 
-    // if (d3.select("#myCheckbox5").property("checked")){
-    //   score += parseInt(d3.select('#m5').html());   
-    // }
+//     if (d3.select("#myCheckbox5").property("checked")){
+//       score += parseInt(d3.select('#m5').html());   
+//     }
 
-    // if (d3.select("#myCheckbox6").property("checked")){
-    //   score += parseInt(d3.select('#m6').html());   
-    // }
+//     if (d3.select("#myCheckbox6").property("checked")){
+//       score += parseInt(d3.select('#m6').html());   
+//     }
 
-    // if (d3.select("#myCheckbox7").property("checked")){
-    //   score += parseInt(d3.select('#m7').html());   
-    // }
+//     if (d3.select("#myCheckbox7").property("checked")){
+//       score += parseInt(d3.select('#m7').html());   
+//     }
 
     d3.select("#myTotal").html(score);    
   }
